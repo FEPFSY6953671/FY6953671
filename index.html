@@ -66,11 +66,17 @@
 
         .hero-image {
             width: 100%;
-            max-height: 300px;
-            object-fit: cover;
+            height: auto;
             border-radius: 8px;
-            margin: 1.4rem 0 1.8rem;
+            margin: 1.2rem 0 0.4rem;
             display: block;
+        }
+
+        .image-source {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 0;
+            margin-bottom: 1.2rem;
         }
 
         table {
@@ -186,8 +192,6 @@
             <h2 class="paper-title"><b>Conference paper: Bridge Deck Repairs</b></h2>
 
             <h1 class="article-main-title">Transhumanism: The Next Phase of Human Evolution</h1>
-
-            <img src="posthumanimage.png" alt="Posthuman themed illustration" class="hero-image">
         </header>
 
         <nav id="toc">
@@ -220,6 +224,14 @@
 
                 <p>
                     Transhumanism is often regarded in both philosophical and scientific areas (as mentioned before) which is aimed at giving us the ability to determine our own evolution. Its also very similar to posthumanism and can be seen as “a loosely defined movement that has developed gradually over the past two decades” which “promotes an interdisciplinary approach to understanding and evaluating the opportunities for enhancing the human condition and the human organism opened up by the advancement of technology” (Bostrom, 2005, ‘Transhumanist Values’, Journal of Evolution and Technology, 14(1), pp. 1–25. Date accessed: 20/10/2025). Of course, this philosophy/technological movement is entirely reliant on the belief that the current state of humanity isn’t the last but just an early one when compared to the possibilities of humans and technology combining.
+                </p>
+
+                <img src="posthumanimage.png" alt="Posthuman illustration from Nick Bostrom" class="hero-image">
+                <p class="image-source">
+                    Image adapted from: Nick Bostrom, “Why I Want to be a Posthuman When I Grow Up”, available at
+                    <a href="https://nickbostrom.com/posthuman.pdf" target="_blank" rel="noopener noreferrer">
+                        https://nickbostrom.com/posthuman.pdf
+                    </a>.
                 </p>
 
                 <p>
@@ -311,7 +323,6 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // Show current date/time
             var dateElement = document.getElementById("date");
             if (dateElement) {
                 dateElement.textContent = new Date().toLocaleString();
