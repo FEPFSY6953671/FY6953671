@@ -64,6 +64,15 @@
             padding-bottom: 0.3rem;
         }
 
+        .hero-image {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin: 1.4rem 0 1.8rem;
+            display: block;
+        }
+
         table {
             font-family: Arial, sans-serif;
             border-collapse: collapse;
@@ -177,6 +186,8 @@
             <h2 class="paper-title"><b>Conference paper: Bridge Deck Repairs</b></h2>
 
             <h1 class="article-main-title">Transhumanism: The Next Phase of Human Evolution</h1>
+
+            <img src="posthumanimage.png" alt="Posthuman themed illustration" class="hero-image">
         </header>
 
         <nav id="toc">
@@ -187,10 +198,13 @@
                 <li><a href="#current-future-tech">3. Current and Future Transhumanist Technologies</a></li>
                 <li><a href="#evaluation-conclusion">4. Evaluation / Conclusion</a></li>
                 <li><a href="#final-conclusion">5. Final Conclusion</a></li>
+                <li><a href="#wordcount">6. Word Count</a></li>
+                <li><a href="#references">7. References</a></li>
             </ul>
         </nav>
 
         <main>
+
             <section id="abstract">
                 <h2 class="section-title">Abstract</h2>
 
@@ -265,14 +279,59 @@
                 </p>
             </section>
 
+            <section id="wordcount">
+                <h2 class="section-title">Word Count</h2>
+                <p id="wordCountDisplay">Calculating...</p>
+            </section>
+
+            <section id="references">
+                <h2 class="section-title">References</h2>
+
+                <ol>
+                    <li>
+                        Bohan, E. (2019) ‘A History of Transhumanism’, <em>Transcendence Studies Review</em>, 3(2), pp. 45–67. Date accessed: 21/10/2025.
+                    </li>
+                    <li>
+                        Bostrom, N. (2005) ‘Transhumanist Values’, <em>Journal of Evolution and Technology</em>, 14(1), pp. 1–25. Date accessed: 20/10/2025.
+                    </li>
+                    <li>
+                        Hrynevych, N. &amp; Shyshkina, M. (2023) ‘Transhumanism in the Context of Ethos of Enhancement and Search for Identity: Philosophical Origins’, <em>Skhid</em>, 3(1), pp. 102–111. Date accessed: 21/10/2025.
+                    </li>
+                    <li>
+                        Kowalska, A. (2018) ‘Transhumanism and Human Enhancement’, <em>Ethics in Progress</em>, 9(2), pp. 55–70. Date accessed: 21/10/2025.
+                    </li>
+                    <li>
+                        Oxford Research Archive (2020) ‘A History of Transhumanist Thought’, pp. 3–5. Date accessed: 21/10/2025.
+                    </li>
+                </ol>
+            </section>
+
         </main>
     </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+            // Show current date/time
             var dateElement = document.getElementById("date");
             if (dateElement) {
                 dateElement.textContent = new Date().toLocaleString();
+            }
+
+            function countWords(text) {
+                return text.trim().split(/\s+/).filter(function (word) {
+                    return word.length > 0;
+                }).length;
+            }
+
+            var article = document.querySelector("main");
+            if (article) {
+                var text = article.innerText || article.textContent;
+                var words = countWords(text);
+
+                var output = document.getElementById("wordCountDisplay");
+                if (output) {
+                    output.textContent = "This article contains approximately " + words + " words.";
+                }
             }
         });
     </script>
