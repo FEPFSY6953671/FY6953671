@@ -577,8 +577,16 @@
     </video>
 
     <script>
-        const githubUsername = "nr0025";
-        const githubRepository = "FY0025";
+const githubUsername = window.location.hostname.split(".")[0];
+
+const pathParts = window.location.pathname
+    .split("/")
+    .filter(part => part.length > 0);
+
+const githubRepository =
+    pathParts.length > 0
+        ? pathParts[0]
+        : `${githubUsername}.github.io`;
 
         async function getLastUpdatedTime(showConfirmation = false) {
             const output = document.getElementById("lastUpdated");
@@ -591,8 +599,8 @@
             }
 
             output.textContent = showConfirmation
-                ? "Verifying..."
-                : "Loading last update time...";
+                ? "Verifying"
+                : "Loading last update time";
 
             const apiUrl =
                 `https://api.github.com/repos/${githubUsername}/${githubRepository}/commits?per_page=1`;
